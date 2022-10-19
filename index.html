@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
@@ -25,12 +26,40 @@
         </section>
 
 
-        <!-- Form section -->
-        <section class="fomr-section">
+        <!-- login section -->
+        <section class="login-section">
 
+            <div class="login-register">
+                <p class="sign-in">Sign In</p>
+                <p class="register">Register</p>
+            </div>
+
+            <form action="" class="login-form">
+
+                <div class="input-group login-input_div">
+                    <input required="" type="text" name="text" autocomplete="off" class="login-input" id="input-email">
+                    <label id="email-label" class="user-label">Enter Email</label>
+                    <div class="login-input_icon">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                  </div>
+
+                  <div class="input-group login-input_div">
+                    <input required="" type="password" name="password" autocomplete="off" class="login-input" id="input-pswd">
+                    <label id="pswd-label" class="user-label">Password</label>
+                    <div class="login-input_icon">
+                        <i id="eye-pswd" class="fa-regular fa-eye"></i>
+                    </div>
+                  </div>
+
+                <button class="sign-in_btn" type="submit">Sign In</button>
+
+            </form>
+            
         </section>
     </main>
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="./src/js/login.js"></script>
 </body>
 </html>
