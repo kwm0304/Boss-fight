@@ -1,0 +1,73 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
+
+
+/* Variables */
+:root {
+    --primary-color: #4461F2;
+    --secondary-color: #DDA82A;
+    --bg-color: #1E1E1E;
+    --white: white;
+    --box-padding: 35px;
+}
+
+
+/* General or global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Barlow', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--white);
+}
+
+
+/* Title section */
+.title-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: var(--box-padding);
+}
+
+.title-section h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+
+/* Card section */
+.card-section {
+    width: 100%;
+    height: 50vh;
+    padding: var(--box-padding);
+}
+
+.card-section .shape {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .4;
+}
+
+.card-section .shape-1 {
+    background-color: var(--primary-color);
+}
+
+.card-section .shape-2 {
+    background-color: var(--secondary-color);
+    right: 60px;
+    top: 350px;
+}
+
+.card-section model-viewer {
+    width: 100%;
+    height: 100%;
+}
