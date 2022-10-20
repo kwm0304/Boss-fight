@@ -13,8 +13,11 @@
         <!-- Title section -->
         <section class="title-section">
             <h1>
-                Sign In to <br> The Magic Cards
+                Sign In to <br> The <span>Magic Cards</span>
             </h1>
+            <p>
+                Your deck of magic cards <br> is waiting for you
+            </p>
         </section>
 
 
@@ -34,10 +37,41 @@
                 <p class="register">Register</p>
             </div>
 
-            <form action="" class="login-form">
+            <form action="" class="login-form form">
 
                 <div class="input-group login-input_div">
-                    <input required="" type="text" name="text" autocomplete="off" class="login-input" id="input-email">
+                    <input required="" type="text" name="text" autocomplete="off" class="login-input input-email" id="email">
+                    <label id="email" class="user-label email-label">Enter Email</label>
+                    <!-- <div class="login-input_icon">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div> -->
+                  </div>
+
+                  <div class="input-group login-input_div">
+                    <input required="" type="password" name="password" autocomplete="off" class="login-input input-pswd input-pswd_login" id="pswd">
+                    <label id="pswd" class="user-label pswd-label">Password</label>
+                    <div class="login-input_icon">
+                        <i id="eye-pswd_login" class="fa-regular fa-eye"></i>
+                    </div>
+                  </div>
+
+                <button class="sign-in_btn" type="submit">Sign In</button>
+            </form>
+
+            <!-- ----------------------  -->
+
+            <form action="" class="register-form form">
+
+                <div class="input-group login-input_div">
+                    <input required="" type="text" name="username-label" autocomplete="off" class="login-input" id="input-username">
+                    <label id="username-label" class="user-label">Enter Username</label>
+                    <div class="login-input_icon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                  </div>
+
+                <div class="input-group login-input_div">
+                    <input required="" type="text" name="email-label" autocomplete="off" class="login-input input-email" id="input-email">
                     <label id="email-label" class="user-label">Enter Email</label>
                     <div class="login-input_icon">
                         <i class="fa-regular fa-circle-xmark"></i>
@@ -45,21 +79,24 @@
                   </div>
 
                   <div class="input-group login-input_div">
-                    <input required="" type="password" name="password" autocomplete="off" class="login-input" id="input-pswd">
+                    <input required="" type="password" name="input-pswd" autocomplete="off" class="login-input" id="input-pswd">
                     <label id="pswd-label" class="user-label">Password</label>
                     <div class="login-input_icon">
-                        <i id="eye-pswd" class="fa-regular fa-eye"></i>
+                        <i id="eye-pswd_register" class="fa-regular fa-eye"></i>
                     </div>
                   </div>
 
-                <button class="sign-in_btn" type="submit">Sign In</button>
-
+                <button class="register_btn" type="submit">Register</button>
             </form>
-            
         </section>
     </main>
 
+    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script> -->
+
+    <!-- This is the Google Model Viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script src="./src/js/login.js"></script>
+    
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/gsap.js"></script>
 </body>
 </html>
