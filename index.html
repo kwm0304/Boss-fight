@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Magic Cards</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
@@ -16,7 +16,7 @@
                 Sign In to <br> The <span>Magic Cards</span>
             </h1>
             <p>
-                Your deck of magic cards <br> is waiting for you
+                Your deck <br> of magic cards is waiting for you
             </p>
         </section>
 
@@ -25,7 +25,7 @@
         <section class="card-section">
             <div class="shape-1 shape"></div>
             <div class="shape-2 shape"></div>
-            <model-viewer src="./assets/3d/scene.gltf" shadow-intensity="1" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
+            <model-viewer class="model-viewer" src="./assets/3d/scene.gltf" shadow-intensity="1" camera-controls touch-action="pan-y" disable-zoom></model-viewer>
         </section>
 
 
@@ -37,7 +37,7 @@
                 <p class="register">Register</p>
             </div>
 
-            <form action="" class="login-form form">
+            <form action="" class="sign-in-form form">
 
                 <div class="input-group login-input_div">
                     <input required="" type="text" name="text" autocomplete="off" class="login-input input-email" id="email">
@@ -58,29 +58,29 @@
                 <button class="sign-in_btn" type="submit">Sign In</button>
             </form>
 
-            <!-- ----------------------  -->
+            <!-- ----- Form for register  -->
 
             <form action="" class="register-form form">
 
                 <div class="input-group login-input_div">
-                    <input required="" type="text" name="username-label" autocomplete="off" class="login-input" id="input-username">
-                    <label id="username-label" class="user-label">Enter Username</label>
+                    <input required="" type="text" name="username-label" autocomplete="off" class="login-input" id="input-username_register">
+                    <label id="username-label_register" class="user-label">Enter Username</label>
                     <div class="login-input_icon">
                         <i class="fa-regular fa-circle-check"></i>
                     </div>
                   </div>
 
                 <div class="input-group login-input_div">
-                    <input required="" type="text" name="email-label" autocomplete="off" class="login-input input-email" id="input-email">
-                    <label id="email-label" class="user-label">Enter Email</label>
+                    <input required="" type="text" name="email-label" autocomplete="off" class="login-input input-email" id="input-email_register">
+                    <label id="email-label_register" class="user-label">Enter Email</label>
                     <div class="login-input_icon">
                         <i class="fa-regular fa-circle-xmark"></i>
                     </div>
                   </div>
 
                   <div class="input-group login-input_div">
-                    <input required="" type="password" name="input-pswd" autocomplete="off" class="login-input" id="input-pswd">
-                    <label id="pswd-label" class="user-label">Password</label>
+                    <input required="" type="password" name="input-pswd_register" autocomplete="off" class="login-input" id="input-pswd_register">
+                    <label id="pswd-label_register" class="user-label">Password</label>
                     <div class="login-input_icon">
                         <i id="eye-pswd_register" class="fa-regular fa-eye"></i>
                     </div>
@@ -91,12 +91,8 @@
         </section>
     </main>
 
-    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script> -->
-
+    <script type="module" src="./src/js/script.js"></script>
     <!-- This is the Google Model Viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    
-    <script src="./src/js/script.js"></script>
-    <script src="./src/js/gsap.js"></script>
 </body>
 </html>

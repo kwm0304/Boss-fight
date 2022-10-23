@@ -1,57 +1,75 @@
-//Const
+//=========================
+//       IMPORTS     
+//=========================   
+import { gsap }  from "../../node_modules/gsap/all.js";
+
+
+//=========================
+//   VARIABLES & CONST     
+//=========================    
+
+// ----- Abstract Variables -----
 const primaryColor = `rgb(86, 124, 228)`;
 
 
-// Form Const
-const loginForm = document.querySelector(`.login-form`);
-
-// Inputs Const
-const username = document.querySelector(`#input-username`);
-const usernameLabel = document.querySelector(`#username-label`);
-const checkIcon = document.querySelector(`.fa-circle-check`);
+// ---- Form Register Variables -----
+    // Forms Tag
 
 
-const email = document.querySelector(`#input-email`);
-const emailLabel = document.querySelector(`#email-label`);
-const validationIcon = document.querySelector(`.fa-circle-xmark`)
-
-const pswd = document.querySelector(`#input-pswd`);
-const pswdLabel = document.querySelector(`#pswd-label`);
-const eyeIconLogin = document.getElementById(`eye-pswd_login`);
-const eyeIconRegister = document.getElementById(`eye-pswd_register`);
-
-const pswdLogin = document.querySelector(`.input-pswd_login`)
+    // Inputs Const for register form
+    const usernameRegister = document.querySelector(`#input-username_register`);
+    const usernameLabel = document.querySelector(`#username-label_register`);
+    const checkIcon = document.querySelector(`.fa-circle-check`);
 
 
-// Btns Const
-const signInBtn = document.querySelector(`.sign-in_btn`);
-const registerBtn = document.querySelector(`.register_btn`);
+    const emailRegister = document.querySelector(`#input-email_register`);
+    const emailLabel = document.querySelector(`#email-label_register`);
+    const emailIcon = document.querySelector(`.fa-circle-xmark`)
+
+    const pswdRegister = document.querySelector(`#input-pswd_register`);
+    const pswdLabel = document.querySelector(`#pswd-label_register`);
+    const eyeIconRegister = document.getElementById(`eye-pswd_register`);
+
+    // Sign In & Register Btns & Form
+    const signIn = document.querySelector(`.sign-in`);
+    const signInForm = document.querySelector(`.sign-in-form`);
+
+    const register = document.querySelector(`.register`);
+    const registerForm = document.querySelector(`.register-form`);
+
+    // Inputs Const for login form
+    const eyeIconLogin = document.getElementById(`eye-pswd_login`);
+    const pswdLogin = document.querySelector(`.input-pswd_login`)
 
 
-// Check Email Characters Const
-const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // Btns Const for login 
+    const signInBtn = document.querySelector(`.sign-in_btn`);
+    const registerBtn = document.querySelector(`.register_btn`);
 
 
-// Sign In & Register Const
-const signIn = document.querySelector(`.sign-in`);
-const signInForm = document.querySelector(`.login-form`)
+    // Check Email Characters Const
+    const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const register = document.querySelector(`.register`)
-const registerForm = document.querySelector(`.register-form`);
 
-// Events Listeners
+
+//=========================
+//    EVENTS LISTENERS    
+//=========================  
+
+// ----- Event listener for the Forms -----
 eventListener();
 function eventListener() {
     // Disable Sign In Btn
     document.addEventListener(`DOMContentLoaded`, disableBtn);
 
     // Inputs Fields Validations
-    username.addEventListener(`blur`, formValidationUsername);
-    email.addEventListener(`blur`, formValidationEmail);
-    pswd.addEventListener(`blur`, formValidationPswd);
+    usernameRegister.addEventListener(`blur`, formValidationUsername);
+    emailRegister.addEventListener(`blur`, formValidationEmail);
+    pswdRegister.addEventListener(`blur`, formValidationPswd);
 }
 
-// Event Listener Changing Login & Register
+
+// ----- Event Listener Changing Login & Register -----
 signIn.onclick = () => {
     registerForm.style.display = `none`;
     register.style.color = `white`;
@@ -68,7 +86,39 @@ register.onclick = () => {
     signIn.style.color = `white`;
 }
 
-// Functions
+
+// ----- Event Listener Show & Hide Password
+eyeIconRegister.onclick = () => {
+    if(pswdRegister.type === `password`) {
+        pswdRegister.setAttribute(`type`, `text`);
+        eyeIconRegister.classList.remove(`fa-eye`);
+        eyeIconRegister.classList.add(`fa-eye-slash`);
+    }else {
+        pswdRegister.setAttribute(`type`, `password`);
+        eyeIconRegister.classList.remove(`fa-eye-slash`);
+        eyeIconRegister.classList.add(`fa-eye`);
+    };
+};
+
+eyeIconLogin.onclick = () => {
+    if(pswdLogin.type === `password`) {
+        pswdLogin.setAttribute(`type`, `text`);
+        eyeIconLogin.classList.remove(`fa-eye`);
+        eyeIconLogin.classList.add(`fa-eye-slash`);
+    }else {
+        pswdLogin.setAttribute(`type`, `password`);
+        eyeIconLogin.classList.remove(`fa-eye-slash`);
+        eyeIconLogin.classList.add(`fa-eye`);
+    };
+};
+
+
+
+//=========================
+//      FUNCTIONS   
+//=========================  
+
+// ----- Disable Btn for register
 function disableBtn() { 
 
     registerBtn.disabled = true;
@@ -77,7 +127,7 @@ function disableBtn() {
  };
 
 
-// Form Validation
+// ----- Form Validation for register -----
 function formValidationUsername(e){
     if(e.target.value.length > 0) {
 
@@ -96,22 +146,16 @@ function formValidationUsername(e){
 
 function formValidationEmail(e){
 
-    if(e.target.value.length > 0) {
-
-        if (e.target.type === `text`) {
-            if(er.test(e.target.value)) {
-                e.target.style.borderColor = `#4461F2`;
-                emailLabel.style.color = `#4461F2`;
-                validationIcon.style.color = `#63D399`;
-
-                enableBtn();
-            }
-        }
+    if(er.test(e.target.value)) {
+        e.target.style.borderColor = `#4461F2`;
+        emailLabel.style.color = `#4461F2`;
+        emailIcon.style.color = `#63D399`
+        enableBtn();
     } else {
 
         e.target.style.borderColor = `#F23501`;
         emailLabel.style.color = `#F23501`;
-        validationIcon.style.color = `#F23501`;
+        emailIcon.style.color = `#F23501`;
     };
 };
 
@@ -132,34 +176,35 @@ function formValidationPswd(e) {
     };
 };
 
+// ----- Enable Btn for register -----
 function enableBtn() {
-    if(er.test(email.value) && pswd.value !== ``) {
+    if(er.test(emailRegister.value) && pswdRegister.value !== ``) {
         registerBtn.disabled = false;
         registerBtn.style.cursor = `pointer`;
         registerBtn.style.backgroundColor = primaryColor;
     }
 };
 
-eyeIconRegister.onclick = () => {
-    if(pswd.type === `password`) {
-        pswd.setAttribute(`type`, `text`);
-        eyeIconRegister.classList.remove(`fa-eye`);
-        eyeIconRegister.classList.add(`fa-eye-slash`);
-    }else {
-        pswd.setAttribute(`type`, `password`);
-        eyeIconRegister.classList.remove(`fa-eye-slash`);
-        eyeIconRegister.classList.add(`fa-eye`);
-    };
-};
 
-eyeIconLogin.onclick = () => {
-    if(pswdLogin.type === `password`) {
-        pswdLogin.setAttribute(`type`, `text`);
-        eyeIconLogin.classList.remove(`fa-eye`);
-        eyeIconLogin.classList.add(`fa-eye-slash`);
-    }else {
-        pswdLogin.setAttribute(`type`, `password`);
-        eyeIconLogin.classList.remove(`fa-eye-slash`);
-        eyeIconLogin.classList.add(`fa-eye`);
-    };
-};
+//=========================
+//     GSAP ANIMATION    
+//=========================   
+
+// ----- Model viewer animation ------
+function mvAnimation() {
+
+    const modelViewer = document.querySelector(`.model-viewer`);
+
+    setTimeout(() => {
+        modelViewer.style.display = `block`;
+    }, 2000);
+    }
+    mvAnimation();
+
+
+// ----- Duration Template -----
+const tl = gsap.timeline({defaults:{duration: 1.5}});
+
+// Elements Animation when the page is loading
+tl.from(`.title-section`, {y: -50, opacity:0});
+tl.from(`.login-section`, {y: 50, opacity: 0}, `-=1.1`);
