@@ -1,51 +1,51 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require('../config/connection');
 
-//Player Model
-class Player extends Model {}
+class Characters extends Model {}
 
-Player.init (
+Characters.init(
     {
+        //define id column
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
+        tier: {
+            type: DataTypes.INTEGER,
+            notNull: true,
             validate: {
-                isUsername: true
+                len: [1]
             }
         },
-        password: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8]
+                isName: true
             }
         },
-        health: {
-            type: DataTypes.INTEGER
+        attack: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
-        wins: {
+        defense: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        sacrifice: {
             type: DataTypes.INTEGER,
             allowNull: true
-        },
-        losses: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        }    
-        
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        modelName: 'Player'
+        underscored: true,
+        modelName: 'characters'
     }
-)
+);
 
-module.exports = Player;
+module.exports = Characters;
