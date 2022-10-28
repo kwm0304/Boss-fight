@@ -2,18 +2,18 @@
 const express = require('express');
 // const session = require('express-session');
 // const exphbs = require('express-handlebars')
+const routes = require('./routes/index');
+const sequelize = require('./config/connection');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// const sequelize = require("./config/connection")
-
 //Express middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/scripts', express.static('/node_modules/gsap/all.js'));
+// app.use(`/script`, express.static(__dirname + `./node_modules/gsap/all.js`));
 
 
 //Connect to db
@@ -21,16 +21,28 @@ app.use('/scripts', express.static('/node_modules/gsap/all.js'));
 //     {
 //         host: 'localhost',
 //         user: 'root',
-//         password: 'root',
+//         password: 'Puasboi155.',
 //         database: 'cards'
 //     },
 //     console.log('Connected to cards db')
 // );
 
-// Routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/html/login.html'));
-  });
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/html/login.html'));
+});
+
+app.get('/module/gsap', (req, res) => {
+  res.sendFile(path.join(__dirname, './node_modules/gsap'));
+});
+
+
+// Turn on routes
+app.use(routes);
+
+// Turn on connection to db and server
+sequelize.sync({ force: false}).then(() => {
+  app.listen(PORT,  () => console.log('Now listening'));
+});
 
 //'Not found' 'Catch all'
 app.use((req, res) => {
@@ -38,6 +50,6 @@ app.use((req, res) => {
 })
 
 //Starts server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });

@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const { Characters } = require('../../models');
+// const router = require('express').Router();
+// const { Characters } = require('../../models');
 
-router.get('/', (req, res) => {
-      })
+// router.get('/', (req, res) => {
+//       })
 
 
-module.exports = router;
+// module.exports = router;

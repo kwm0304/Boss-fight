@@ -9,6 +9,8 @@
     --bg-color: #1E1E1E;
     --white: white;
     --grey: #9e9e9e;
+    --soft-red: #F8D7DA;
+    --red: #842029;
     --box-padding: 35px;
 }
 
@@ -131,7 +133,7 @@ html {
     position: relative;
     height: 55px;
     border-radius: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
    
 .login-input {
@@ -178,6 +180,20 @@ html {
 
  .fa-eye, .fa-eye-slash {
     cursor: pointer;
+}
+
+.error-message-container {
+    background-color: var(--soft-red);
+    color: var(--red);
+    border: 1px solid var(--red);
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-style: italic;
+    opacity: .6;
+    transition: all ease-out .5s;
 }
 
 .sign-in_btn, .register_btn {
