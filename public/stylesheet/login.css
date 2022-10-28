@@ -31,6 +31,10 @@ html {
     color: var(--white);
 }
 
+i {
+    cursor: pointer;
+}
+
 
 /* Title section */
 .title-section {

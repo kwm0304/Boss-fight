@@ -10,10 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //Express middleware
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
-// app.use(`/script`, express.static(__dirname + `./node_modules/gsap/all.js`));
+// app.use(`/script`, express.static(__dirname + `./node_modules/gsap/`));
 
 
 //Connect to db
@@ -31,9 +31,9 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, './public/html/login.html'));
 });
 
-app.get('/module/gsap', (req, res) => {
-  res.sendFile(path.join(__dirname, './node_modules/gsap'));
-});
+// app.get('/gsap', (req, res) => {
+//   res.sendFile(path.join(__dirname, './node_modules/gsap/all.js'));
+// });
 
 
 // Turn on routes

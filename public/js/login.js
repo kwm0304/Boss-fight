@@ -4,7 +4,7 @@
 
 // For some reason the gsap module it's not working on  the server, I have to figure out how send it to the model, but this
 // is just animations, at the end are the animation code in comments to avoid any error.
-import { gsap }  from "/module/gsap";
+// import { gsap }  from "../../node_modules/gsap/all.js";
 //=========================
 //   VARIABLES & CONST     
 //=========================    
@@ -25,7 +25,7 @@ const primaryColor = `rgb(86, 124, 228)`;
 
     const emailRegister = document.querySelector(`#input-email_register`);
     const emailLabel = document.querySelector(`#email-label_register`);
-    const emailIcon = document.querySelector(`.fa-circle-xmark`)
+    const emailIcon = document.querySelector(`.fa-at`)
 
     const pswdRegister = document.querySelector(`#input-pswd_register`);
     const pswdLabel = document.querySelector(`#pswd-label_register`);
@@ -313,3 +313,23 @@ tl.from(`.login-section`, {y: 50, opacity: 0}, `-=1.1`);
 function formAnimation(form) {
     tl.to(form, {y: 50, opacity: 0, duration: 0.5}.reversed(true));
 };
+
+//=========================
+//     TIPPY TOOLTIP    
+//=========================  
+
+tippy(`#eye-pswd_login`, {
+    content: `Show Password`
+});
+
+tippy(`#eye-pswd_register`, {
+    content: `More than 8 characters`
+});
+
+tippy(`#icon-username`, {
+    content: `More than 5 characters`
+});
+
+tippy(`#icon-email`, {
+    content: `Put a valid email`
+});
