@@ -1,7 +1,36 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require('../config/connection');
 
-class Characters extends Model {}
+class Characters extends Model {
+    constructor(name, attack, defense) {
+        this.name = name;
+        this.attack = this.attack
+        this.defense = this.defense
+       
+    }
+
+    isAlive() {
+        if (this.defense === 0) {
+            return false;
+        }
+        return true;
+    }
+
+    reduceHealth() {
+        this.defense -= oppAttack;
+
+        if (this.defense < 0) {
+            this.defense = 0;
+        }
+        return discard()
+    }
+    //discardPile = []
+
+    attack() {
+        this.att
+    }
+
+}
 
 Characters.init(
     {

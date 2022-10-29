@@ -1,7 +1,10 @@
+document.ready 
 // const Characters = require("../../models/Characaters");
-
+const Player = require("../../models/Player")
+// const Opponent = require("../../models/Opponent")
+// import { Player } from "../../models/Player";
 //timer
-const turnTimer = document.getElementById('timer')
+var turnTimer = document.getElementById('timer')
 var timeLeft;
 //Buttons
 const startButton = document.getElementById('start-btn')
@@ -21,21 +24,22 @@ const tile_2 = document.getElementById('tile2')
 const tile_3 = document.getElementById('tile3')
 const tile_4 = document.getElementById('tile4')
 //Opponents hand/tiles
-const AIhand_1 = document.getElementById('AIHand1')
-const AIhand_2 = document.getElementById('AIHand2')
-const AIhand_3 = document.getElementById('AIHand3')
-const AIhand_4 = document.getElementById('AIHand4')
-const AItile_1 = document.getElementById('AItile1')
-const AItile_2 = document.getElementById('AItile2')
-const AItile_3 = document.getElementById('AItile3')
-const AItile_4 = document.getElementById('AItile4')
+var AIhand_1 = document.getElementById('AIHand1')
+var AIhand_2 = document.getElementById('AIHand2')
+var AIhand_3 = document.getElementById('AIHand3')
+var AIhand_4 = document.getElementById('AIHand4')
+var AItile_1 = document.getElementById('AItile1')
+var AItile_2 = document.getElementById('AItile2')
+var AItile_3 = document.getElementById('AItile3')
+var AItile_4 = document.getElementById('AItile4')
 
 //Buttons
 // startButton.addEventListener('click', startGame)
 // doneButton.addEventListener('click', endTurn)
 // nextButton.addEventListener('click', fight)
 
-let cards = [
+
+let deck = [
     {
         tier: 'E',
         name: 'OffCenterDiv',
@@ -212,71 +216,117 @@ let cards = [
         sacrifice: 4 
     }
 ];
+var player = new Player(deck);
 
+var opponent = new Player(deck);
 
 let hand = [];
-
+let oppHand = [];
 
 
 //Strategy Phase
-// function countDown() {
-//     var timeInterval = setInterval(function() {
-//         timeLeft--;
-//         turnTimer.textContent=timeLeft;
-//         if (timeLeft <=0 ) {
-//             clearInterval(timeInterval)
-//             endTurn()
-//         }
-//     }, 1000)
-// }
+function countDown() {
+    var timeInterval = setInterval(function() {
+        timeLeft--;
+        turnTimer.textContent=timeLeft;
+        if (timeLeft <=0 ) {
+            clearInterval(timeInterval)
+            endTurn()
+        }
+    }, 1000)
+    console.log(timeLeft)
+}
 
-// function startGame() {
-//     timeLeft = 60;
-//     countDown();
-//     startButton.classList.add('hidden')
-//     doneButton.classList.remove('hidden')
-//     nextButton.classList.remove('hidden')
-//     generateHand(4)
-//     generateAIHand()
-//     generateAIPlacement()
 
-// }
 
 //Draw card w/ Oppcard array 
-function draw() {
-    var index = Math.floor(Math.random()*Oppcards.length-1)
-        return Oppcards.splice(index, 1)
+//The new deck w/ splice is no longer array of objects, cant use 'this'
+function oppDraw() {
+    var index = Math.floor(Math.random()*oppCards.length-1)
+        return oppCards.splice(index, 1)
 }
-//Place their hand
 
+function generateAIHand(num) {
+    for (var i = 0; i < num; i++) {
+        oppHand.push(oppDraw());
+    }
+//     //For initial turn: Places first 4 drawn cards onto board
+    AItile_1 = oppCards[0][0].name
+    AItile_2 = oppCards[1][0].name
+    AItile_3 = oppCards[2][0].name
+    AItile_4 = oppCards[3][0].name
+//     //Next 4 drawn cards are in their hand
+//     AIhand_1 = oppCards[4]
+//     AIhand_2 = oppCards[5]
+//     AIhand_3 = oppCards[6]
+//     AIhand_4 = oppCards[7]
+
+    console.log(oppHand)
+}
 
 //Attack logic
-
+function attack () {
+    //select card
+    //place card in 1tile
+    //that tile interacts with AI_tile directly across
+    //
+}
 //draws specific number of cards (4) and pushes to hand array
-function generateHand(num) {
-    for (var i = 0; i < num; i++) {
-        hand.push(draw());
-    }
-    console.log(hand)
-    console.log(cards)
+// function 
+//     console.log(hand)
+//     console.log(deck)
 
-    //assigning drawn cards to hand slots
-    // hand_1.innerHTML = hand[0];
-    // hand_2.innerHTML = hand[1];
-    // hand_3.innerHTML = hand[2];
-    // hand_4.innerHTML = hand[3];
-    // console.log(hand_1); returns undefined
-}
+        
+//     //assigning drawn cards to hand slots
+//     // var attack = (hand[0][0].defense) - (hand[1][0].attack);
+//     // hand_1.innerHTML = ;
+
+//     hand_2.innerHTML = hand[1][0].name;
+//     hand_3.innerHTML = hand[2][0].name;
+//     hand_4.innerHTML = hand[3][0].name;
 
 
-let card1 = hand[0]
 //draws one card and removes it from array 
-function draw() {
-    var index = Math.floor(Math.random()*cards.length-1)
-        return cards.splice(index, 1)
+
+
+function startGame() {
+         timeLeft = 60;
+        countDown();
+//     //     startButton.classList.add('hidden')
+//     //     doneButton.classList.remove('hidden')
+//     //     nextButton.classList.remove('hidden')
+        generateHand(4)
+        generateAIHand(4)
+//         // generateAIPlacement()
+    
+     }
+function placeCard () {
+// hand_1Button.addEventListener('click', select())
+
+//selectedCard
+}
+function attack() {
+
+    //var damageInflicted = hand[x][0].defense - hand[y][0].attack;
+    //if (damageInflicted < 0) {let playerDamage = (Player.health - (Math.abs(damageInflicted)}
 }
 
+function cleaveDamage(attack) {
+    
+}
+var tile1attack
+var userDamage1 = 0; 
 
-
-// function endTurn()
+function aiAttack() {
+    userDamage1 = tile_1.defense - AItile_1.attack
+}
+// function endTurn() {
+//  if (!isAlive
+// }
 // function fight()
+// module.exports = Card;
+//WORKS
+//draw
+//genHand
+//Timer (counts at least)
+//attack know how it 
