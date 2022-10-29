@@ -2,3 +2,7 @@ header {
     width: auto;
     margin: auto;
 }
+
+.hidden {
+    display: none;
+}

@@ -1,11 +1,13 @@
+
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require('../config/connection');
 
 class Characters extends Model {
     constructor(name, attack, defense) {
         this.name = name;
-        this.attack = this.attack
-        this.defense = this.defense
+        this.attack = attack
+        this.defense = defense
        
     }
 
@@ -29,7 +31,7 @@ class Characters extends Model {
     attack() {
         this.att
     }
-
+    
 }
 
 Characters.init(
