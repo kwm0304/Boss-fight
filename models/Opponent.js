@@ -14,7 +14,7 @@ isAlive() {
     return true;
 }
 
-reduceHealth(health) {
+reduceOppHealth(health) {
     this.health -= this.health;
 
     if (this.health < 0) {
