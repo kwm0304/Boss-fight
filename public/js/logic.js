@@ -388,7 +388,7 @@ class Game {
         // let AIB2 = oppHand[5]
         // let AIB3 = oppHand[6]
         // let AIB4 = oppHand[7]
-        
+        this.start()
     }
     oppDraw() {
         var index = Math.floor(Math.random()*oppCards.length-1)
@@ -405,7 +405,6 @@ class Game {
             oppHand.push(oppDraw());
         }
         this.hand.forEach(makeCharacterObject)
-        
     }
     
     generateHand(num) {
@@ -418,11 +417,6 @@ class Game {
         this.cards.forEach(element => {
             this.cards[index] = new Character(name, attack, defense)
         });
-    }
-    makeOpponentObject() {
-        this.oppCards.forEach(element => {
-            this.oppCards[index] = new Opponent(name, attack, defense)
-        })
     }
    
     start() {

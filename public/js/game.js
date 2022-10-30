@@ -1,9 +1,13 @@
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 // const Player = require("../../models/Player");
 
 // const Opponent = require("../../models/Opponent");
 
+<<<<<<< Updated upstream
 // $(document ).ready(function() {
 //     let deck = [
 //         {
@@ -251,6 +255,255 @@
 
     
 // });
+=======
+$(document ).ready(function() {
+    let deck = [
+        {
+            tier: 'E',
+            name: 'OffCenterDiv',
+            attack: 5,
+            defense: 1,
+            sacrifice: 0 
+        },
+        {
+            tier: 'E',
+            name: 'Jester',
+            attack: 4,
+            defense: 2,
+            sacrifice: 0 
+        },
+        {
+            tier: 'E',
+            name: 'CTRLALTDELETE',
+            attack: 3,
+            defense: 3,
+            sacrifice: 0 
+        },
+        {
+            tier: 'D',
+            name: 'StackOverflowing',
+            attack: 6,
+            defense: 2,
+            sacrifice: 0 
+        },
+        {
+            tier: 'D',
+            name: 'forEach',
+            attack: 7,
+            defense: 1,
+            sacrifice: 0 
+        },
+        {
+            tier: 'D',
+            name: 'Terminal',
+            attack: 4,
+            defense: 4,
+            sacrifice: 0 
+        },
+        {
+            tier: 'D',
+            name: 'GoogleFu',
+            attack: 5,
+            defense: 3,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'Gitsome',
+            attack: 5,
+            defense: 5,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'GrimRepo',
+            attack: 8,
+            defense: 2,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'Gitbasher',
+            attack: 2,
+            defense: 8,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'CascadingSamuraiStars',
+            attack: 7,
+            defense: 3,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'ErrorCatcher',
+            attack: 1,
+            defense: 9,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'BranchSwitcher',
+            attack: 3,
+            defense: 7,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'FourOhFour',
+            attack: 4,
+            defense: 6,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'Refactorer',
+            attack: 6,
+            defense: 4,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'CTRLV',
+            attack: 9,
+            defense: 1,
+            sacrifice: 0 
+        },
+        {
+            tier: 'C',
+            name: 'Iterator',
+            attack: 10,
+            defense: 0,
+            sacrifice: 1 
+        },
+        {
+            tier: 'C',
+            name: 'Bootstrapped',
+            attack: 0,
+            defense: 10,
+            sacrifice: 1 
+        },
+        {
+            tier: 'B',
+            name: 'destroyEnemy(you)',
+            attack: 8,
+            defense: 4,
+            sacrifice: 1 
+        },
+        {
+            tier: 'B',
+            name: 'DeathNode',
+            attack: 9,
+            defense: 3,
+            sacrifice: 1 
+        },
+        {
+            tier: 'B',
+            name: 'EventListener',
+            attack: 2,
+            defense: 10,
+            sacrifice: 1 
+        },
+        {
+            tier: 'B',
+            name: 'JSONFoorhees',
+            attack: 11,
+            defense: 1,
+            sacrifice: 1 
+        },
+        {
+            tier: 'A',
+            name: 'FatalError',
+            attack: 9,
+            defense: 5,
+            sacrifice: 2 
+        },
+        {
+            tier: 'A',
+            name: 'TheCompiler',
+            attack: 12,
+            defense: 2,
+            sacrifice: 3 
+        },
+        {
+            tier: 'A',
+            name: 'FullyStacked',
+            attack: 13,
+            defense: 1,
+            sacrifice: 4 
+        }
+
+    ];
+
+    
+    var player = new Gameplayer(deck, 'Kenan', true);
+    
+    player.generateHand(4);
+    console.log(player.hand)
+    console.log(player.deck)
+    
+    var opponent = new Gameplayer(deck, 'opponent', false);
+    opponent.generateHand(4)
+    console.log(opponent.hand );
+    console.log(opponent.deck)
+    
+    var drawButton = $('#draw')
+    // var placeCardButton = $('#placeCard')
+    var handSlotName = $('.handslot')
+    var currentCardEl = $('.currentCard')
+    //Hand slots
+    
+    drawButton.on("click",drawCard)
+    //targets hand slot based on currentCard and places its properties on the slot
+    handSlotName.on("click", function() {
+        var selectedTile = $(this).children().eq(0).val()
+        console.log("tile", selectedTile)
+        switch (selectedTile) {
+            case '0': 
+            $(this).children().eq(1).text(player.currentCard[0].name)
+            $(this).children().eq(2).text(player.currentCard[0].attack)
+            $(this).children().eq(3).text(player.currentCard[0].defense)
+
+            case '1': 
+            $(this).children().eq(1).text(player.currentCard[0].name)
+            $(this).children().eq(2).text(player.currentCard[0].attack)
+            $(this).children().eq(3).text(player.currentCard[0].defense)
+
+            case '2': 
+            $(this).children().eq(1).text(player.currentCard[0].name)
+            $(this).children().eq(2).text(player.currentCard[0].attack)
+            $(this).children().eq(3).text(player.currentCard[0].defense)
+            case '3': 
+            $(this).children().eq(1).text(player.currentCard[0].name)
+            $(this).children().eq(2).text(player.currentCard[0].attack)
+            $(this).children().eq(3).text(player.currentCard[0].defense)
+        }
+    })
+    function drawCard () {
+       if (player.isPlayerTurn) {
+        player.draw()
+        console.log(player.currentCard[0].name)
+        currentCardEl.text(player.currentCard[0].name) 
+       } else {
+        opponent.draw()
+       } 
+       drawButton.addClass('hidden')
+       
+    
+    }
+    function placeCard() {
+        if (player.isPlayerTurn) {
+            player.currentCard
+            
+           } else {
+            opponent.draw()
+           } 
+    }
+
+    
+});
+>>>>>>> Stashed changes
 
 // const Characters = require("../../models/Characaters");
 // const Player = require("../../models/Player")
@@ -336,7 +589,11 @@
 //     AIhand_4 = oppCards[7]
 
     // console.log(oppHand)
+<<<<<<< Updated upstream
 // }
+=======
+}
+>>>>>>> Stashed changes
 
 //Attack logic
 // function attack () {
