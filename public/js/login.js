@@ -237,7 +237,11 @@ function handleRegisterFormSubmit(e) {
             signInForm.style.display = `block`;
             signIn.style.color = primaryColor;
             alert(`You create an account`);
-    })
+    });
+
+    usernameRegister.value =  ` `;
+    emailRegister.value = ` `;
+    pswdRegister.value = ` `;
 }
 
 // ----- Login Function -----
