@@ -14,9 +14,6 @@
     --box-padding: 35px;
 }
 
-/* #4461F2 */
-/* #DDA82A */
-
 /* General or global styles */
 * {
     box-sizing: border-box;
@@ -93,7 +90,6 @@ i {
     justify-content: center;
       width: 100%;
       height: 100%;
-      max-width: ;
       border-radius: 50%;
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -106,6 +102,12 @@ i {
     width: 100%;
     border-radius: 50%;
   }
+
+.card-section model-viewer {
+    /* display: none; */
+    height: 300px;
+    margin: 0 auto;
+}
 
 
 /* Login section */
@@ -281,6 +283,10 @@ i {
       bottom: -100px;
   }
 
+  .card-section model-viewer {
+    height: 600px;
+    width: 100%;
+}
 
 
 

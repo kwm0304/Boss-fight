@@ -296,15 +296,15 @@ signInForm.addEventListener(`submit`, handleLoginFormSubmit);
 //=========================   
 
 // ----- Model viewer animation ------
-function mvAnimation() {
+// function mvAnimation() {
 
-    const modelViewer = document.querySelector(`.model-viewer`);
+//     const modelViewer = document.querySelector(`.model-viewer`);
 
-    setTimeout(() => {
-        modelViewer.style.display = `block`;
-    }, 2000);
-    }
-    mvAnimation();
+//     setTimeout(() => {
+//         modelViewer.style.display = `block`;
+//     }, 2000);
+//     }
+//     mvAnimation();
 
 
 // ----- Duration Template -----
